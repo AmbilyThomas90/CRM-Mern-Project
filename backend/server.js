@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -10,21 +9,29 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
 
-// app.use(cors({
-//   origin: "https://your-frontend-project.vercel.app",
-//   credentials: true
-// }));
+/* ------------------------------
+   CORS CONFIGURATION (IMPORTANT)
+--------------------------------- */
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",                // Local frontend (Vite)
+      "https://crm-mern-project.vercel.app"   // Deployed frontend
+    ],
+    credentials: true
+  })
+);
 
 app.use(express.json());
 
-// simple test route
+/* Test route */
 app.get("/", (req, res) => res.send("API running"));
 
-// mount auth and customer routes (we'll create these next)
+/* API routes */
 app.use("/api/auth", authRoutes);
 app.use("/api/customers", customerRoutes);
 
+/* Server */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
