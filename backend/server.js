@@ -16,7 +16,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",                // Local frontend (Vite)
+    //   "http://localhost:5173",                // Local frontend (Vite)
       "https://crm-mern-project.vercel.app"   // Deployed frontend
     ],
     credentials: true
