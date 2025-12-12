@@ -160,7 +160,7 @@ This design currently focuses on core CRM functions (customers). For a more adva
 
 **5.1. User API Documentation**
 
-# **A. POST /api/auth/register**
+#  A. POST /api/auth/register**
 
 ### Description
 
@@ -216,7 +216,7 @@ Creates a new user account, hashes the password, stores data in MongoDB, and ret
 }  
 ---
 
-# **🧩 B. POST /api/auth/login**
+#  B. POST /api/auth/login**
 
 ### Description
 
